@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>All Products</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="cart.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" media="all" onload="this.onload=null;this.media='all';">
+</head>
+<body class="content" style="margin:0;">
+
+<div class="nav-prod" style="background-color:whitesmoke;height:105px;text-align:center; position: sticky;top: 0;z-index: 1000;padding: 10px 20px;box-shadow: 0 3px 6px rgba(0,0,0,0.1);">
+  <img src="image.jpeg" style="width:50px;height:auto;" loading="lazy" alt="Logo">
+  <h1 style="color:purple;font-size:40px;font-family:initial;margin:0;">Loris Health Care</h1>
+</div>
+        <div class="cart-icon" onclick="toggleCart()">
+         🛒<span id="cart-count">0</span>
+        </div>
+<br>
+
+<ul class="menu">
+  <a href="index.html" class="menu-link active" style="margin-left:340px;"><button style="width:115px;height:35px;font-size:20px;border-radius:8px;background:purple;color:white;">Home</button></a>
+  <a href="all products.html" class="menu-link" style="margin-left:20px;"><button style="width:115px;height:35px;font-size:19px;border-radius:8px;background:purple;color:white;">Products</button></a>
+  <li class="menu-item dropdown-parent">
+    <button style="width:115px;height:35px;font-size:17px;border-radius:8px;background:purple;color:white;margin-left:30px;">
+      Category <span class="caret"><i class="fa-solid fa-angle-up"></i></span>
+    </button>
+    <ul class="dropdown">
+      <li><a href="Deep Glow Skin Brightening.html">Skin Brightening</a></li>
+      <li><a href="Moisturizer.html">Moisturizer</a></li>
+      <li><a href="Glowris skin Brightening.html">Glowris Skin Brightening</a></li>
+      <li><a href="Acne solution.html">Acne Solution</a></li>
+      <li><a href="Sunblock scgel.html">SunBlock and SC Gel</a></li>
+      <li><a href="lordruf.html">Anti Dandruff</a></li>
+    </ul>
+  </li>
+  <a href="contact.html" class="menu-link" style="margin-left:30px;"><button style="width:115px;height:35px;font-size:17px;border-radius:8px;background:purple;color:white;">Contact Us</button></a>
+</ul>
+<div id="cart-panel" class="cart-panel">
+    <h2>Your Cart</h2>
+    <ul id="cart-items"></ul>
+    <p>Total: Rs. <span id="total">0</span></p>
+
+    <!-- Change this line in your cart panel div -->
+    <a href="checkout.html" onclick="proceedToCheckout()"><button>Proceed to Checkout</button></a>
+    <button onclick="toggleCart()">Close</button>
+</div>
+<div class="cart-overlay" onclick="toggleCart()"></div>
+
+<h1 style="font-family:Arial,Helvetica,sans-serif;font-size:50px;margin-left:60px;margin-top:50px;">Products</h1>
+
+<!-- Products Section Start -->
+<div class="main-container">
+  <div class="products-grid">
+
+    <!-- Product Example -->
+    <div class="product-card">
+      <a href="deep glow cream2.html"><img src="deep glow creampic.jpg" alt="Deep Glow" loading="lazy"></a>
+      <div class="sale-badge">Sale 15%</div>
+      <div class="product-info">
+        <div class="product-title">Deep Glow Brightening Cream</div>
+        <div class="price-section">
+          <span class="old-price">Rs.1,650.00</span>
+          <span class="new-price">Rs.1,403.00</span>
+        </div>
+        <button class="add-btn"onclick="addToCart('Deep Glow Brightening Cream', 1403)">Add to Cart</button>
+      </div>
+    </div>
+    <!-- Product 2 -->
+    <div class="product-card">
+      <a href="deep glow facewash2.html"><img src="deep glow facewash pic.jpg" alt="Image2" loading="lazy"></a>
+      <div class="sale-badge">Sale 15%</div>
+      <div class="product-info">
+        <div class="product-title">Deep Glow Skin Brightening Facewash</div>
+        <div class="price-section">
+          <span class="old-price">Rs.945.00</span>
+          <span class="new-price">Rs.803.00</span>
+        </div>
+       <button class="add-btn"onclick="addToCart('Deep Glow Skin Brightening Facewash', 803)">Add to Cart</button>
+      </div>
+    </div>
+
+    <!-- Product 3 -->
+    <div class="product-card">
+      <a href="sunprime2.html"><img src="sun creme.jpg" alt="Image3" loading="lazy"></a>
+      <div class="sale-badge">Sale 15%</div>
+      <div class="product-info">
+        <div class="product-title">Sun Prime SC Gel + Primer (SPF 40)</div>
+        <div class="price-section">
+          <span class="old-price">Rs.1,945.00</span>
+          <span class="new-price">Rs.1,653.00</span>
+        </div>
+        <button class="add-btn"onclick="addToCart('Sun Prime SC Gel + Primer (SPF 40)', 1653)">Add to Cart</button>
+      </div>
+    </div>
+
+    <!-- Product 4 -->
+    <div class="product-card">
+      <a href="lormoist skin barier2.html"><img src="lormoist.jpg" alt="Image4" loading="lazy"></a>
+      <div class="sale-badge">Sale 15%</div>
+      <div class="product-info">
+        <div class="product-title">Lormoist Skin Barrier Lotion (SPF 20)</div>
+        <div class="price-section">
+          <span class="old-price">Rs.850.00</span>
+          <span class="new-price">Rs.723.00</span>
+        </div>
+        <button class="add-btn"onclick="addToCart('Lormoist Skin Barrier Lotion (SPF 20)', 723)">Add to Cart</button>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<div class="main-container">
+  <div class="products-grid">
+
+    <!-- Product 5 -->
+    <div class="product-card">
+      <a href="glowris skin serum.html"><img src="serum.jpg" alt="Image5" loading="lazy"></a>
+      <div class="sale-badge">Sale 15%</div>
+      <div class="product-info">
+        <div class="product-title">Glowris Skin Brightening Serum</div>
+        <div class="price-section">
+          <span class="old-price">Rs.2,295.00</span>
+          <span class="new-price">Rs.1,950.0</span>
+        </div>
+        <button class="add-btn"onclick="addToCart('Glowris Skin Brightening Serum', 1950)">Add to Cart</button>
+      </div>
+    </div>
+
+    <!-- Product 6 -->
+    <div class="product-card">
+      <a href="glowris skin brightening fasewash2.html"><img src="glowris pic.jpg" alt="Image6" loading="lazy"></a>
+      <div class="sale-badge">Sale 15%</div>
+      <div class="product-info">
+        <div class="product-title">Glowris Skin Brighten Facewash</div>
+        <div class="price-section">
+          <span class="old-price">Rs.1,645.00</span>
+          <span class="new-price">Rs.1,398.00</span>
+        </div>
+        <button class="add-btn"onclick="addToCart('Glowris Skin Brighten Facewash', 1398)">Add to Cart</button>
+      </div>
+    </div>
+
+    <!-- Product 7 -->
+    <div class="product-card">
+      <a href="aclor acne fasewash2.html"><img src="aclor.jpg" alt="Image7" loading="lazy"></a>
+      <div class="sale-badge">Sale 15%</div>
+      <div class="product-info">
+        <div class="product-title">Aclor Anti Acne Facewash Gel </div>
+        <div class="price-section">
+          <span class="old-price">Rs.795.00</span>
+          <span class="new-price">Rs.675.50</span>
+        </div>
+        <button class="add-btn"onclick="addToCart('Aclor Anti Acne Facewash Gel ', 675)">Add to Cart</button>
+      </div>
+    </div>
+
+    <!-- Product 8 -->
+    <div class="product-card">
+      <a href="Aclor acne soap2.html"><img src="saop.jpeg" alt="Image8" loading="lazy"></a>
+      <div class="sale-badge">Sale 15%</div>
+      <div class="product-info">
+        <div class="product-title">Aclor Anti Acne and Oily Saop </div>
+        <div class="price-section">
+          <span class="old-price">Rs.280.00</span>
+          <span class="new-price">Rs.238.50</span>
+        </div>
+        <button class="add-btn"onclick="addToCart('Aclor Anti Acne and Oily Saop', 238)">Add to Cart</button>
+      </div>
+    </div>
+
+  </div>
+</div>
+<div class="main-container">
+<div class="products-grid">
+
+  <!-- Product 9 -->
+  <div class="product-card">
+    <a href="shadowy sunblock2.html"><img src="sun ccreme.jpeg" alt="Image9" loading="lazy"></a>
+    <div class="sale-badge">Sale 15%</div>
+    <div class="product-info">
+      <div class="product-title">Shadowy Spectrum Sunblock (SPF 60+)</div>
+      <div class="price-section">
+        <span class="old-price">Rs.750.00</span>
+        <span class="new-price">Rs.638.50</span>
+      </div>
+      <button class="add-btn"onclick="addToCart('Shadowy Spectrum Sunblock (SPF 60+)', 638)">Add to Cart</button>
+    </div>
+  </div>
+
+  <!-- Product 10 -->
+  <div class="product-card">
+    <a href="lordruf anti dandruff shampoo2.html"><img src="lordruf pic.jpg" alt="Image10" loading="lazy"></a>
+    <div class="sale-badge">Sale 15%</div>
+    <div class="product-info">
+      <div class="product-title">Lordruf Anti Dandruff Shampoo</div>
+      <div class="price-section">
+        <span class="old-price">Rs.750.00</span>
+        <span class="new-price">Rs.638.00</span>
+      </div>
+      <button class="add-btn"onclick="addToCart('Lordruf Anti Dandruff Shampoo', 638)">Add to Cart</button>
+    </div>
+  </div>
+
+  <!-- Empty Placeholder 1 -->
+  <div class="product-card" style="visibility: hidden;"></div>
+
+  <!-- Empty Placeholder 2 -->
+  <div class="product-card" style="visibility: hidden;"></div>
+
+
+    
+  </div>
+</div>
+
+<!-- Footer Start -->
+<footer class="footer">
+  <div class="newsletter">
+    <h2>GET LATEST STORIES</h2>
+    <p>Share store details, promotions, or brand content with your customers.</p>
+    <form class="newsletter-form" onsubmit="event.preventDefault(); alert('Thank you for subscribing!'); this.reset();">
+      <input type="email" placeholder="Enter your email address" required>
+      <button type="submit">SUBMIT</button>
+    </form>
+  </div>
+
+  <div class="footer-content">
+    <div class="footer-logo">
+      <img src="logo.png" alt="loris health care" class="logo" loading="lazy">
+    </div>
+
+    <div class="footer-links">
+      <div>
+        <h4>QUICK LINKS</h4>
+        <ul>
+          <li><a href="index.html" class="linkfotter">Home</a></li>
+          <li><a href="all products.html" class="linkfotter">Products</a></li>
+          <li><a href="contact.html" class="linkfotter">Contact Us</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>USER INFO</h4>
+              <ul>
+                <li><a href="Privacy policy.html" class="linkfotter">Privacy Policy</a></li>
+                <li><a href="refund policy.html" class="linkfotter">Refund Policy</a></li>
+                <li><a href="shipping policy.html" class="linkfotter">Shipping Policy</a></li>
+              </ul>
+      </div>
+      <div>
+        <h4>CONTACT INFO</h4>
+        <ul>
+          <li>📍 Lahore, Pakistan</li>
+          <li>📞 +92 333 1371383</li>
+          <li>✉️ lorishaelthcare7@gmail.com</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <div class="social-icons">
+    <a href="https://wa.me/923148681218" target="_blank"><img src="wattsup.png" alt="WhatsApp" style="width:42px;" loading="lazy"></a>
+    <a href="https://www.facebook.com/profile.php?id=100083237227267"><img src="facebook logo.png" alt="Facebook" style="width:42px;" loading="lazy"></a>
+    <a href="https://www.instagram.com/loris_healthcare?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw=="><img src="insta logo.png" alt="Instagram" style="width:37px;" loading="lazy"></a>
+  </div>
+</footer>
+
+<script src="script.js" defer></script>
+<script src="cart.js" defer></script>
+<script src="checkout.js"></script>
+<script>
+    fetch('/products')
+      .then(res => res.json())
+      .then(products => {
+        const container = document.getElementById("product-container");
+        container.innerHTML = "";
+        products.forEach(p => {
+          container.innerHTML += `
+            <div class="bg-white p-4 shadow rounded">
+              <img src="${p.image}" class="w-full h-48 object-cover mb-2" />
+              <h3 class="text-lg font-semibold">${p.name}</h3>
+              <p class="text-gray-600">${p.description}</p>
+              <strong class="text-blue-600">Rs. ${p.price}</strong>
+            </div>`;
+        });
+      });
+</script>
+
+</body>
+</html>

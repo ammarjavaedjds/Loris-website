@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Admin Dashboard</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="flex h-screen bg-gray-100 text-gray-900">
+
+  <!-- Sidebar -->
+  <aside class="w-64 bg-white shadow-lg flex flex-col p-4">
+    <h1 class="text-2xl font-bold mb-6">Admin Panel</h1>
+    <nav class="flex flex-col space-y-2">
+      <a href="#" class="py-2 px-4 rounded-lg hover:bg-blue-100">📊 Dashboard</a>
+      <a href="/admin/orders" class="py-2 px-4 rounded-lg hover:bg-blue-100">🛍️ Orders</a>
+      <a href="/admin/products" class="py-2 px-4 rounded-lg hover:bg-blue-100">📦 Products</a>
+      <a href="/admin/users" class="py-2 px-4 rounded-lg hover:bg-blue-100">👥 Manage User</a>
+      <a href="/admin/messages" class="py-2 px-4 rounded-lg hover:bg-blue-100">✉️ Messages</a>
+      <a href="/admin/settings" class="py-2 px-4 rounded-lg hover:bg-blue-100">⚙️ Settings</a>
+      <a href="/admin/login" class="py-2 px-4 mt-auto text-red-600 hover:bg-red-100 rounded-lg">🚪 Logout</a>
+    </nav>
+  </aside>
+
+  <!-- Main Content -->
+  <div class="flex-1 flex flex-col">
+    
+    <!-- Top Navbar -->
+    <header class="bg-white shadow px-6 py-4 flex justify-between items-center">
+      <h2 class="text-xl font-semibold">Dashboard</h2>
+      <div class="flex items-center space-x-4">
+        <span class="text-sm">Admin User</span>
+        <img src="https://via.placeholder.com/40" alt="Avatar" class="w-10 h-10 rounded-full">
+      </div>
+    </header>
+
+    <!-- Dashboard Content -->
+    <main class="flex-1 p-6">
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+        
+        <!-- Card 1 -->
+        <div class="dashboard-card">
+        <h3>Total Products</h3>
+          <p id="total-products">Loading...</p>
+        </div>
+
+        <div class="dashboard-card">
+        <h3>Total Orders</h3>
+          <p id="total-orders">Loading...</p>
+        </div>
+
+        <div class="dashboard-card">
+        <h3>Total Users</h3>
+          <p id="total-users">Loading...</p>
+        </div>
+
+        <div class="dashboard-card">
+        <h3>Total Messages</h3>
+          <p id="total-messages">Loading...</p>
+        </div>
+
+
+      </div>
+    </main>
+  </div>
+<script>
+window.onload = () => {
+  fetch('http://localhost:5000/api/admin/total-products')
+    .then(res => res.json())
+    .then(data => {
+      document.getElementById('total-products').textContent = data.total_products;
+    });
+
+  fetch('http://localhost:5000/api/admin/total-orders')
+    .then(res => res.json())
+    .then(data => {
+      document.getElementById('total-orders').textContent = data.total_orders;
+    });
+
+  fetch('http://localhost:5000/api/admin/total-users')
+    .then(res => res.json())
+    .then(data => {
+      document.getElementById('total-users').textContent = data.total_users;
+    });
+
+  fetch('http://localhost:5000/api/admin/total-messages')
+    .then(res => res.json())
+    .then(data => {
+      document.getElementById('total-messages').textContent = data.total_messages;
+    });
+};
+</script>
+</body>
+</html>
+

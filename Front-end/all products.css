@@ -1,0 +1,75 @@
+.menu {
+    list-style: none;
+    padding: 0;
+    margin-top: 18px;
+    display: flex;
+    align-items: center;
+    
+}
+.nav-prod{
+    position: sticky; /* ya fixed bhi use kar sakte hain */
+    top: 0;
+    z-index: 1000;
+    padding: 10px 20px;
+    box-shadow: 0 3px 6px rgba(0,0,0,0.1);
+}
+
+.menu-item {
+    position: relative;
+}
+
+.menu-link {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    padding: 10px 15px;
+    color: #333;
+    font-family: initial;
+    font-size: 17px;
+
+}
+.menu-link {
+  position: relative;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.menu-link::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  height: 2px;
+  width: 0;
+  background-color: purple; /* Line color */
+  transition: width 0.4s ease-in-out;
+}
+
+.menu-link:hover::after {
+  width: 100%; /* Animate line left to right */
+}
+
+.First-link {
+    margin-left: 350px;
+}
+
+.menu-link:not(.first-link) {
+    margin-left: 30px;
+}
+.menu-link:hover {
+    text-decoration: underline;
+    color: white;
+}
+#navbar2 {
+    margin-left: 350px;
+    text-decoration: none;
+    color: black;
+    font-family: initial;
+    font-size: 17px; 
+}
+
+navbar2:hover{
+    text-decoration: underline;
+    color: white;
+
+}
