@@ -3,3 +3,4 @@ Flask-PyMongo==3.0.1
 pymongo==4.14.0
 gunicorn==23.0.0
 python-dotenv==1.0.1
+flask_cors==4.0.0
