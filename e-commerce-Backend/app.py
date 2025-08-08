@@ -352,6 +352,11 @@ def logout():
     session.pop('admin_logged_in', None)
     return redirect('/admin/login')
 
+@app.route("/")
+def home():
+    return "Backend is running on Railway!"
+
+
 if __name__ == "__main__":
     import os
     port = int(os.environ.get("PORT", 8000))
