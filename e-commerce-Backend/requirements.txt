@@ -1,3 +1,4 @@
-flask
-Flask==2.3.2
-pymongo==4.5.0
+Flask==3.1.1
+Flask-PyMongo==3.0.1
+pymongo==4.14.0
+gunicorn==23.0.0
