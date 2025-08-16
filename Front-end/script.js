@@ -82,3 +82,8 @@ style.innerHTML = `
     }
 `;
 document.head.appendChild(style);
+fetch("https://loris-website-production.up.railway.app/")
+  .then(res => res.json())
+  .then(data => {
+     console.log(data);
+  });
