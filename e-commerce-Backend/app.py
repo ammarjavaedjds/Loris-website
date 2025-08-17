@@ -78,7 +78,7 @@ def get_products():
         return jsonify({"error": str(e)}), 500
 
 # Submit order API
-@app.route('/submit-order', methods=['POST'])
+@app.route('/api/orders', methods=['POST'])
 def submit_order():
     data = request.json
     print("Data received:", data)
@@ -102,7 +102,6 @@ def submit_order():
 
     order_id = orders_collection.insert_one(order).inserted_id
     return jsonify({"message": "Order submitted", "order_id": str(order_id)}), 201
-
 
 # Admin login
 @app.route('/admin/login', methods=['GET', 'POST'])
