@@ -1,0 +1,106 @@
+#cart-icon {
+  font-size: 24px;
+  cursor: pointer;
+  position: absolute;
+  right: 20px;   /* ✅ desktop pe right side */
+  top: 30px;
+  z-index: 1000;
+}
+
+/* ✅ Mobile ke liye fix */
+@media screen and (max-width: 768px) {
+  #cart-icon {
+    right: 20px;   /* screen ke andar aayega */
+    top: 30px;     /* thoda upar niche adjust */
+    font-size: 20px; /* thoda chhota icon */
+  }
+}
+
+#cart-count {
+  background: red;
+  color: white;
+  border-radius: 50%;
+  padding: 2px 6px;
+  font-size: 12px;
+  position: absolute;
+  top: -10px;
+  right: -15px;
+}
+
+.cart-panel {
+  position: fixed;
+  top: 0;
+  right: -450px; /* Start off-screen */
+  width: 350px;
+  height: 100%;
+  background: white;
+  box-shadow: -2px 0 5px rgba(0,0,0,0.1);
+  transition: right 0.8s ease;
+  z-index:1000;
+  padding: 20px;
+  overflow-y: auto;
+}
+.cart-panel.open {
+    right: 0;       /* ✅ Open hone par screen ke andar aa jayega */
+  }
+@media screen and (max-width: 768px) {
+  .cart-panel {
+    width: 95%;     /* ✅ Mobile par chhoti width le lega */
+    right: -95%;    /* ✅ Puri tarah off-screen rahega jab band ho */
+  }
+
+  .cart-panel.open {
+    right: 0;       /* ✅ Open hone par screen ke andar aa jayega */
+  }
+}
+
+
+/* Overlay when cart is open */
+.cart-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0,0,0,0.5);
+  z-index: 999;
+  display: none;
+}
+
+.cart-panel.open + .cart-overlay {
+  display: block;
+}
+
+.cart-panel ul {
+  list-style: none;
+  padding: 0;
+}
+
+.cart-panel li {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 10px;
+}
+
+.cart-panel form {
+  margin-top: 20px;
+  display: flex;
+  flex-direction: column;
+}
+
+.cart-panel input {
+  padding: 8px;
+  margin-bottom: 10px;
+  font-size: 14px;
+}
+
+.cart-panel button {
+  padding: 10px;
+  font-size: 16px;
+  cursor: pointer;
+  background-color: purple;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  margin-top: 15px;
+}

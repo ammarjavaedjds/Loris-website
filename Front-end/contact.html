@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>contact us</title>
+    <link rel="stylesheet" href="contact.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body style="margin: 0px;">
+   
+<nav id="navbar">
+  <div style="text-align: center;">
+    <img src="image.jpeg" style="width: 50px; height: auto;" loading="lazy" alt="logo">
+  </div>
+  <h1 id="logo">Loris Health Care</h1>
+</nav>
+
+<br>
+
+<ul class="menu">
+  <li><a href="index.html" class="menu-link active">Home</a></li>
+  <li><a href="all products.html" class="menu-link">Products</a></li>
+  <li class="menu-item dropdown-parent">
+    <a class="menu-link">
+      Category <span class="caret"><i class="fa-solid fa-angle-up"></i></span>
+    </a>
+    <ul class="dropdown">
+      <li><a href="facewash.html">Cleansers / Facewash</a></li>
+      <li><a href="Brightening cream.html">Skin Brightening Cream</a></li>
+      <li><a href="Moisturizer.html">Moisturizer + Lotion</a></li>
+      <li><a href="Glowris skin Brightening.html">Glowris Brightening Serum</a></li>
+      <li><a href="lordruf.html">Anti Dandruff Shampoo</a></li>
+      <li><a href="Sunblock scgel.html">Sunblock + Gel</a></li>
+    </ul>
+  </li>
+  <li><a href="contact.html" class="menu-link">Contact Us</a></li>
+</ul>
+
+<form id="contactForm">
+  <h2 class="contact-title">Contact Us....</h2>
+
+  <input type="text" name="name" placeholder="Your Name" required class="contact-input">
+  <input type="email" name="email" placeholder="Your Email" required class="contact-input">
+  <input type="number" name="phone" placeholder="Phone Number" required class="contact-input">
+  <textarea name="message" placeholder="Your Message" required class="contact-textarea"></textarea>
+
+  <button type="submit" class="contact-btn">Send</button>
+</form>
+
+
+    <footer class="footer">
+        <div class="newsletter">
+          <h2>GET LATEST STORIES</h2>
+          <p>Share store details, promotions, or brand content with your customers.</p>
+          <form class="newsletter-form">
+            <input type="email" placeholder="Enter your email address" required>
+            <button type="submit">SUBMIT</button>
+          </form>
+        </div>
+    
+        <div class="footer-content">
+          <div class="footer-logo">
+            <img src="logo.png" alt="Loris health Care Logo" class="logo" loading="lazy">
+          </div>
+    
+          <div class="footer-links">
+            <div>
+              <h4>QUICK LINKS</h4>
+              <ul>
+                <li><a href="index.html" class="linkfotter">Home</a></li>
+                <li><a href="all products.html" class="linkfotter">Products</a></li>
+                <li><a href="contact.html" class="linkfotter">Contact Us</a></li>
+              </ul>
+            </div>
+            <div>
+              <h4>CONTACT INFO</h4>
+              <ul>
+                <li><span>📍</span> Lahore, Pakistan</li>
+                <li><span>📞</span> +92 333 1371383</li>
+                <li><span>✉️</span> lorishaelthcare7@gmail.com</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+    
+        <div class="social-icons">
+          <a href="#"><img src="wattsup.png" alt="WhatsApp" style="width: 42px;"></a>
+          <a href="https://www.facebook.com/profile.php?id=100083237227267"><img src="facebook logo.png" alt="Facebook" style="width: 42px;"></a>
+          <a href="https://www.instagram.com/loris_healthcare?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw=="><img src="insta logo.png" alt="Instagram" style="width: 37px;"></a>
+        </div>
+      </footer>
+<script>
+document.querySelector("form").addEventListener("submit", function (e) {
+  e.preventDefault();
+
+  const name = document.querySelector("input[name='name']").value;
+  const email = document.querySelector("input[name='email']").value;
+  const phone = document.querySelector("input[name='phone']").value;
+  const message = document.querySelector("textarea[name='message']").value;
+
+  fetch("http://localhost:5000/contact-form", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json"
+    },
+    body: JSON.stringify({
+    name,
+    email,
+    phone,
+    message
+    })
+   })
+    .then(res => res.json())
+    .then(data => {
+      console.log(data);
+      alert("Message sent!");
+    })
+    .catch(err => {
+      console.error(err);
+      alert("Failed to send message.");
+    });
+});
+</script>
+
+</body>
+</html>

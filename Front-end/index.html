@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Loris Health Care</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="cart.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" media="all" onload="this.onload=null;this.media='all';">
+</head>
+<body class="content">
+
+<nav id="navbar">
+  <div style="text-align: center;">
+    <img src="image.jpeg" style="width: 50px; height: auto;" loading="lazy" alt="logo">
+  </div>
+  <h1 id="logo">Loris Health Care</h1>
+  <div id="cart-icon" class="cart-icon" onclick="toggleCart()">
+    🛒<span id="cart-count">0</span>
+  </div>
+
+</nav>
+
+<br>
+
+<ul class="menu">
+  <li><a href="index.html" class="menu-link active">Home</a></li>
+  <li><a href="all products.html" class="menu-link">Products</a></li>
+  <li class="menu-item dropdown-parent">
+    <a class="menu-link">
+      Category <span class="caret"><i class="fa-solid fa-angle-up"></i></span>
+    </a>
+    <ul class="dropdown">
+      <li><a href="facewash.html">Cleansers / Facewash</a></li>
+      <li><a href="Brightening cream.html">Skin Brightening Cream</a></li>
+      <li><a href="Moisturizer.html">Moisturizer + Lotion</a></li>
+      <li><a href="Glowris skin Brightening.html">Glowris Brightening Serum</a></li>
+      <li><a href="lordruf.html">Anti Dandruff Shampoo</a></li>
+      <li><a href="Sunblock scgel.html">Sunblock + Gel</a></li>
+    </ul>
+  </li>
+  <li><a href="contact.html" class="menu-link">Contact Us</a></li>
+</ul>
+
+<div id="cart-panel" class="cart-panel">
+    <h2>Your Cart</h2>
+    <ul id="cart-items"></ul>
+    <p>Total: Rs. <span id="total">0</span></p>
+
+    <!-- Change this line in your cart panel div -->
+    <a href="checkout.html" onclick="proceedToCheckout()"><button>Proceed to Checkout</button></a>
+    <button onclick="toggleCart()">Close</button>
+</div>
+<div class="cart-overlay" onclick="toggleCart()"></div>
+
+<div class="fixed-banner">
+  <img src="banner-image.jpg" alt="Website Banner">
+</div>
+  <p class="Wellcome">Welcome to <span><button class="Loris">LORIS</button></span> <span><button class="Health">Health</button></span> <span><button class="Care">Care</button></span></p>
+  <p class="your">Your one stop for your skin care solution</p>
+
+<button class="skin">
+  <a href="all products.html" style="color: whitesmoke;text-decoration:dotted;">Shop</a>
+</button>
+
+<div>
+  <p class="Category">Shop By Category</p>
+</div>
+
+<!-- Products Section Start -->
+<div class="main-container">
+  <div class="products-grid">
+
+    <!-- Product Example -->
+    <div class="product-card">
+      <a href="facewash.html"><img src="facewashcat.jpg" alt="Deep Glow" loading="lazy"></a>
+      <div class="sale-badge">Sale 15%</div>
+      <div class="product-info">
+        <div class="product-title">Cleansers / Facewash</div>
+      </div>
+    </div>
+    <!-- Product 2 -->
+    <div class="product-card">
+      <a href="Brightening cream.html"><img src="creamcat.jpg" alt="Image2" loading="lazy"></a>
+      <div class="sale-badge">Sale 15%</div>
+      <div class="product-info">
+        <div class="product-title">Skin Brightening Cream</div>
+      </div>
+    </div>
+
+    <!-- Product 3 -->
+    <div class="product-card">
+      <a href="Moisturizer.html"><img src="lotioncat.jpg" alt="Image3" loading="lazy"></a>
+      <div class="sale-badge">Sale 10%</div>
+      <div class="product-info">
+        <div class="product-title">Moisturizer + Lotion</div>
+      </div>
+    </div>
+  
+     <!-- Product 4 -->
+    <div class="product-card">
+      <a href="Glowris skin Brightening.html"><img src="serumcat.jpg" alt="Image4" loading="lazy"></a>
+      <div class="sale-badge">Sale 10%</div>
+      <div class="product-info">
+        <div class="product-title">Glowris Brightening Serum</div>
+      </div>
+    </div>
+    <!-- Product 5 -->
+    <div class="product-card">
+      <a href="lordruf.html"><img src="shampoocat.jpg" alt="Image5" loading="lazy"></a>
+      <div class="sale-badge">Sale 15%</div>
+      <div class="product-info">
+        <div class="product-title">Anti Dandruff Shampoo</div>
+      </div>
+    </div>
+
+    <!-- Product 6 -->
+    <div class="product-card">
+      <a href="Sunblock scgel.html"><img src="sunblockcat.jpg" alt="Image6" loading="lazy"></a>
+      <div class="sale-badge">Sale 10%</div>
+      <div class="product-info">
+        <div class="product-title">Sunblock<br> (60 + 40)SPF</div>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- Philosophy Section -->
+<div class="cont">
+  <div class="box10">
+    <h1>Our Philosophy</h1>
+    <p style="font-size: 22px;">Start your skincare ritual by cleansing to refresh and purify your skin. Apply a nutrient-rich serum to target specific concerns and boost radiance. Follow with a hydrating moisturizer to lock in moisture and maintain a healthy glow. Finish with sun protection to safeguard your skin from daily exposure.</p>
+  </div>
+  <div class="box10">
+    <h1>Scientific Excellence</h1>
+    <p style="font-size: 21px;">Our dedication to scientific excellence drives our skincare innovation, utilizing cutting-edge research to formulate effective solutions. We rigorously test each product for optimal performance and safety, ensuring superior results. Advanced technology helps us deliver targeted treatments that address specific skin concerns.</p>
+  </div>
+  <div class="box10">
+    <h1>Self-care Ritual</h1>
+    <p style="font-size: 20px;">Our philosophy centers on enhancing natural beauty through simplicity and science. We believe in using pure, effective ingredients that nourish and support your skin’s innate vitality. Each product is crafted with care, focusing on safety and sustainability. Our approach is designed to empower you to feel confident and radiant in your own skin</p>
+  </div>
+</div>
+<!-- Footer Start -->
+<footer class="footer">
+  <div class="newsletter">
+    <h2>GET LATEST STORIES</h2>
+    <p>Share store details, promotions, or brand content with your customers.</p>
+    <form class="newsletter-form" onsubmit="event.preventDefault(); alert('Thank you for subscribing!'); this.reset();">
+      <input type="email" placeholder="Enter your email address" required>
+      <button type="submit">SUBMIT</button>
+    </form>
+  </div>
+
+  <div class="footer-content">
+    <div class="footer-logo">
+      <img src="logo.png" alt="Loris health Care Logo" class="logo" loading="lazy">
+    </div>
+
+    <div class="footer-links">
+      <div>
+        <h4>QUICK LINKS</h4>
+        <ul>
+          <li><a href="index.html" class="linkfotter">Home</a></li>
+          <li><a href="all products.html" class="linkfotter">Products</a></li>
+          <li><a href="contact.html" class="linkfotter">Contact Us</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>CONTACT INFO</h4>
+        <ul>
+          <li>📍 Lahore, Pakistan</li>
+          <li>📞 +92 321 4066188</li>
+          <li>✉️ lorishaelthcare7@gmail.com</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <div class="social-icons">
+    <a href="https://api.whatsapp.com/send?phone=923214066188&text=Hello"><img src="wattsup.png" alt="WhatsApp" style="width:42px;" loading="lazy"></a>
+    <a href="https://www.facebook.com/profile.php?id=100083237227267"><img src="facebook logo.png" alt="Facebook" style="width:42px;" loading="lazy"></a>
+    <a href="https://www.instagram.com/loris_healthcare?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw=="><img src="insta logo.png" alt="Instagram" style="width:37px;" loading="lazy"></a>
+  </div>
+</footer>
+
+<script src="script.js" defer></script>
+<script src="cart.js" defer></script>
+<script src="checkout.js"></script>
+<script>
+    fetch("https://loris-website-production.up.railway.app/")
+  .then(res => res.json())
+  .then(products => {
+    const container = document.getElementById("main-container");
+    container.innerHTML = "";
+    products.forEach(p => {
+      container.innerHTML += `
+        <div class="bg-white p-4 shadow rounded">
+          <img src="${p.image}" class="w-full h-48 object-cover mb-2" />
+          <h3 class="text-lg font-semibold">${p.name}</h3>
+          <p class="text-gray-600">${p.description}</p>
+          <strong class="text-blue-600">Rs. ${p.price}</strong>
+        </div>`;
+    });
+  });
+
+
+  let currentSlide = 0;
+  const slides = document.querySelectorAll('.banner-image');
+
+  setInterval(() => {
+    slides[currentSlide].classList.remove('active');
+    currentSlide = (currentSlide + 1) % slides.length;
+    slides[currentSlide].classList.add('active');
+  }, 5000);
+</script>
+</body>
+</html>
