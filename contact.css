@@ -1,0 +1,425 @@
+.container {
+    display: flex; /* Use Flexbox to align image and text side by side */
+    align-items: flex-start; /* Align items at the top */
+    margin: 0 auto; /* Center the container horizontally */
+    padding: 15px; /* Add padding inside the container */; 
+    margin-left: 100px;
+    margin-top: 100px;
+}
+.caret {
+    display: inline-block;
+    margin-left: 5px;
+    transition: transform 0.3s ease;
+}
+
+
+.image {
+    width: 170px; /* Set the width of the image */
+    height: auto; /* Maintain aspect ratio */
+    margin-right: 20px; /* Space between image and text */
+    margin-top: 100px;
+    margin-bottom: 10px;
+}
+
+.text-container {
+    display: flex;
+    flex-direction: column; /* Stack text and link vertically */
+    justify-content: space-between; /* Space out text and anchor */
+}
+
+.text {
+    font-size: 35px; /* Font size for the text */
+    color: #333; /* Text color */
+    margin-top: 20px; /* Remove default margin */
+    margin-left: 150px;
+}
+
+.link {
+    margin-top: 0px; /* Space above the anchor tag */
+    color:black; /* Link color */
+    text-decoration: none; /* Remove underline */
+    font-size: 25px; /* Font size for the link */
+    margin-left: 170px;
+    opacity: 0.8;
+}
+
+.link:hover {
+    text-decoration: underline; /* Underline on hover */
+}
+
+.link2 {
+    margin-top: 9px; /* Space above the anchor tag */
+    color:black; /* Link color */
+    text-decoration: none; /* Remove underline */
+    font-size: 25px; /* Font size for the link */
+    margin-left: 170px;
+    opacity: 0.8;
+}
+.link2:hover{
+    text-decoration: underline ;
+}
+
+.container4 {
+    display: flex; /* Use Flexbox to align the divs side by side */
+    justify-content: space-between; /* Ensure there's space between the two divs */
+    max-width: 500px; /* Set a maximum width for the container */
+    margin: 0 auto; /* Center the container horizontally */
+    padding: 15px; /* Add padding inside the container */
+    flex-direction: column;
+    
+}
+
+.left-div {
+    width: 48%; /* Set the width of the first div */
+    background-color: #e1e1e1; /* Background color for the first div */
+    padding: 10px; /* Padding inside the first div */
+    box-sizing: border-box; /* Include padding in the width */
+}
+
+.right-div {
+    width: 48%; /* Set the width of the second div */
+    background-color: #c1c1c1; /* Background color for the second div */
+    padding: 10px; /* Padding inside the second div */
+    box-sizing: border-box; /* Include padding in the width */
+}
+
+.text3 {
+    font-size: 35px;
+    margin-top:1px;
+
+
+}
+
+.text4{
+    margin-left: 15px;
+    margin-top: 2px;
+    font-size: 25px;
+    margin-bottom: 1px;
+
+
+}
+.text5{
+
+    margin-left: 15px;
+    margin-top: 3px;
+    font-size: 20px;
+}
+
+.text6{
+    font-size: 25px;
+    margin-left: 15px;
+    margin-bottom: 1px;
+    margin-top: 0px;
+}
+
+.text7{
+
+    font-size:20px ;
+    margin-top: 3px;
+    margin-left: 15px;
+}
+
+a{
+    text-decoration: none;
+}
+
+.menu {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    align-items: center;
+    
+}
+
+.menu-item {
+    position: relative;
+}
+
+.menu-link {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    padding: 10px 15px;
+    color: #333;
+    font-family: initial;
+    font-size: 17px;
+
+}
+.menu-link {
+  position: relative;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.menu-link::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  height: 2px;
+  width: 0;
+  background-color: purple; /* Line color */
+  transition: width 0.4s ease-in-out;
+}
+
+.menu-link:hover::after {
+  width: 100%; /* Animate line left to right */
+}
+
+.First-link {
+    margin-left: 350px;
+}
+
+.menu-link:not(.first-link) {
+    margin-left: 30px;
+}
+
+.caret {
+    display: inline-block;
+    margin-left: 5px;
+    transition: transform 0.3s ease;
+}
+
+.dropdown  {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    background-color: #f9f9f9;
+    border: 1px solid white;
+    width: 200px;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease;
+}
+
+.dropdown li {
+    border-bottom: 1px solid white;
+}
+
+.dropdown li:last-child {
+    border-bottom: none;
+}
+
+.dropdown a {
+    display: block;
+    padding: 13px;
+    color:purple;
+    text-decoration: none;
+    font-size: 15px;
+    text-align: center;
+}
+
+.dropdown a:hover {
+    background-color:white;
+}
+
+.dropdown-parent:hover .dropdown {
+    display: block;
+    opacity: 1;
+    visibility: visible;
+}
+
+.dropdown-parent:hover .caret {
+    transform: rotate(180deg);
+}
+
+
+.heading1{
+    margin-left: 100px;
+    margin-top: 20px;
+    font-size: 50px;
+    font-family: inherit;
+}
+.container{
+    display:flex; /* Flexbox layout to align child divs side by side */
+    justify-content: space-between;
+    gap: 30px;
+    margin-top: 50px;
+    overflow: hidden;
+    
+}
+.box img{
+    width: 100%;
+    height: 100%;
+    transition: transform 0.7s ease;
+}
+.box:hover img{
+    transform: scale(1.1);
+}
+
+
+.box{
+    flex:1; /* Make all box divs equal in width */
+    text-align: center;
+    overflow: hidden;
+    box-sizing: border-box;
+    
+}
+
+.box img{
+    width: 75%; /* Make the image fill the width of the box */
+    height: auto; /* Maintain the image's aspect ratio */
+    margin-left: 0px; /* No margin on the left */
+    margin-right: 0px; /* No margin on the right */
+    border-radius: 5px; /* Optional: Rounded corners for the image */
+    
+    
+}
+
+.box p{
+    margin-top: 0px; /* Space between the image and the description */
+    font-size: 20px; /* Font size for the description */
+    color: #333; /* Text color for the description */
+    
+}
+ /* body.content {
+    opacity: 0; Initially invisible
+    transition: opacity 1s ease-in; Smooth fade-in transition
+} */
+
+/* body.content.fade-in {
+    opacity: 1; Fully visible
+} */ */
+
+.the{
+    text-align: center;
+    font-size: 100px;
+    margin-top: 100px;
+    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    
+}
+.img{
+    
+    width: 170px; /* Set the width of the image */
+    height: auto; /* Maintain aspect ratio */
+    margin-right: 20px; /* Space between image and text */
+    margin-top: 100px;
+    margin-bottom: 10px;
+}
+
+.footer {
+    background-color:whitesmoke;
+    padding: 40px 20px;
+    color:rgb(99, 54, 93);
+    text-align: center;
+    margin-top: 150px;
+  }
+  
+  .newsletter h2 {
+    font-weight: bold;
+  }
+  
+  .newsletter p {
+    font-size: 16px;
+    margin-bottom: 20px;
+    margin-top: 5px;
+  }
+  
+  .newsletter-form {
+    display: flex;
+    justify-content: center;
+    max-width: 700px;
+    margin: 0 auto 40px;
+  }
+  
+  .newsletter-form input {
+    padding: 15px;
+    width: 60%;
+    border: none;
+    outline: none;
+    font-size: 16px;
+  }
+  
+  .newsletter-form button {
+    padding: 15px 30px;
+    background-color: black;
+    color:white;
+    border: none;
+    font-weight: bold;
+    cursor: pointer;
+  }
+  
+  .footer-content {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    margin-bottom: 40px;
+  }
+  
+  .footer-logo {
+    text-align: center;
+    margin-bottom: 20px;
+  }
+  
+  .footer-logo .logo {
+    width: 200px;
+    height: auto;
+  }
+  
+  .footer-links {
+    display: flex;
+    gap: 130px;
+    flex-wrap: wrap;
+    justify-content: center;
+    color: rgb(99, 54, 93);
+    
+  }
+  .navbar-right {
+    display: flex;
+    align-items: center;
+}
+
+.search-form {
+    margin-left: 20px; /* Add space between links and search button */
+}
+
+.search-button {
+    background-color: whitesmoke;
+    border: none;
+    color: purple;
+    padding: 10px;
+    cursor: pointer;
+    font-size: 16px;
+    border-radius: 5px;
+}
+
+.search-button i {
+    font-size: 18px;
+}
+
+.search-button:hover {
+    background-color: #45a049;
+}
+
+.linkfotter{
+    text-decoration: none;
+    color: rgb(99, 54, 93);
+}
+.linkfotter:hover{
+    text-decoration: underline;
+}
+  
+  .footer-links div h4 {
+    font-weight: bold;
+    margin-bottom: 10px;
+  }
+  
+  .footer-links ul {
+    list-style: none;
+    padding: 0;
+  }
+  
+  .footer-links ul li {
+    margin-bottom: 8px;
+  }
+  
+  .social-icons img {
+    margin: 0 10px;
+    cursor: pointer;
+  }
+  

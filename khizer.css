@@ -1,0 +1,35 @@
+body {
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden; /* Prevent horizontal scrollbar */
+}
+
+.banner-container {
+    display: flex;
+    overflow: hidden; /* Hide overflow */
+    position: relative;
+    width: 100%;
+    background-color: #f0f0f0; /* Static background color */
+}
+
+.banner {
+    flex: 1;
+    background-color: #ffcc00; /* Banner background color */
+    margin: 0 10px; /* Space between banners */
+    transition: transform 0.5s ease; /* Smooth transition */
+    text-align: center;
+    line-height: 100px; /* Center text vertically */
+    height: 100px; /* Banner height */
+}
+
+.banner:hover {
+    transform: translateX(0); /* Move banner into view */
+}
+
+.banner-container:hover .banner {
+    transform: translateX(-100%); /* Move out from left */
+}
+
+.banner-container:hover .banner:nth-child(odd) {
+    transform: translateX(100%); /* Move out from right */
+}
