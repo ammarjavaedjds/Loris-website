@@ -16,26 +16,28 @@
   </div>
   <h1 id="logo">Loris Health Care</h1>
 </nav>
+
+<br>
+
 <ul class="menu">
-  <a href="index.html" class="menu-link" style="margin-left: 340px;"><button style="width:115px;height:35px;font-size:20px;border-radius:8px;background:purple;color:white;">Home</button></a>
-  <a href="all products.html" class="menu-link" style="margin-left:20px;"><button style="width:115px;height:35px;font-size:19px;border-radius:8px;background:purple;color:white;">Products</button></a>
+  <li><a href="index.html" class="menu-link active">Home</a></li>
+  <li><a href="all products.html" class="menu-link">Products</a></li>
   <li class="menu-item dropdown-parent">
-    <p class="menu-link" style="margin-left:20px;">
-      <button style="width:115px;height:35px;font-size:17px;border-radius:8px;background:purple;color:white;">
-        Category <span class="caret"><i class="fa-solid fa-angle-up"></i></span>
-      </button>
-    </p>
+    <a class="menu-link">
+      Category <span class="caret"><i class="fa-solid fa-angle-up"></i></span>
+    </a>
     <ul class="dropdown">
-      <li><a href="Deep Glow Skin Brightening.html">Skin Brightening</a></li>
-      <li><a href="Moisturizer.html">Moisturizer</a></li>
-      <li><a href="Glowris skin Brightening.html">Glowris Skin Brightening</a></li>
-      <li><a href="Acne solution.html">Acne Solution</a></li>
-      <li><a href="Sunblock scgel.html">SunBlock and SC Gel</a></li>
-      <li><a href="lordruf.html">Anti Dandruff</a></li>
+      <li><a href="facewash.html">Cleansers / Facewash</a></li>
+      <li><a href="Brightening cream.html">Skin Brightening Cream</a></li>
+      <li><a href="Moisturizer.html">Moisturizer + Lotion</a></li>
+      <li><a href="Glowris skin Brightening.html">Glowris Brightening Serum</a></li>
+      <li><a href="lordruf.html">Anti Dandruff Shampoo</a></li>
+      <li><a href="Sunblock scgel.html">Sunblock + Gel</a></li>
     </ul>
   </li>
-  <a href="contact.html" class="menu-link" style="margin-left:20px;"><button style="width:115px;height:35px;font-size:17px;border-radius:8px;background:purple;color:white;">Contact Us</button></a>
+  <li><a href="contact.html" class="menu-link">Contact Us</a></li>
 </ul>
+
 
 <div class="checkout-container">
   <div class="checkout-container2">
@@ -48,7 +50,7 @@
     <p style="color:rgb(153, 88, 144) ;font-weight: bold;font-size: 20px;font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;">Total: Rs. <span id="checkout-total">0</span></p>
   </div>
     <h3>Order Details</h3>
-    <form class="checkout" onsubmit="submitOrder(event)">
+    <form id="checkout-form" class="checkout" onsubmit="submitOrder(event)">
       <label for="fname">First Name</label>
       <input type="text" id="fname" name="fname" required>
 

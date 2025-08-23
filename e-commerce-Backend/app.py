@@ -9,7 +9,7 @@ from io import StringIO
 import os
 import csv
 app = Flask(__name__)
-CORS(app)
+CORS(app, resources={r"/api/*": {"origins": "*"}})  # sab domains allow
 
 
 # Secret key for session management
@@ -81,26 +81,30 @@ def get_products():
 @app.route('/api/orders', methods=['POST'])
 def submit_order():
     data = request.json
-    print("Data received:", data)
-
     name = data.get('name')
     phone = data.get('phone')
     address = data.get('address')
     cart = data.get('cart', [])
-
+    total_price = data.get('total', 0)  # frontend se aya hua total
+    
     if not (name and phone and address and cart):
         return jsonify({"error": "Missing fields"}), 400
 
+    
     order = {
-        "name": name,
-        "phone": phone,
-        "address": address,
-        "cart": cart,
-        "email": data.get("email", ""),
-        "notes": data.get("notes", "")
+    "name": name,
+    "phone": phone,
+    "address": address,
+    "cart": cart,
+    "email": data.get("email", ""),
+    "notes": data.get("notes", ""),
+    "total": total_price,
+    "date": datetime.utcnow()
     }
 
+    # ✅ Save and get inserted ID
     order_id = orders_collection.insert_one(order).inserted_id
+
     return jsonify({"message": "Order submitted", "order_id": str(order_id)}), 201
 
 # Admin login

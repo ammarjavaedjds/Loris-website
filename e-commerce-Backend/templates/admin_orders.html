@@ -44,13 +44,7 @@
               {% endfor %}
               {{ total_qty }}
             </td>
-            <td class="px-4 py-2">
-              {% set total = 0 %}
-              {% for item in order.get('cart', []) %}
-                {% set total = total + (item.quantity | int * item.price | int) %}
-              {% endfor %}
-              Rs {{ total }}
-            </td>
+            <td class="px-4 py-2">Rs {{ order.total }}</td>
             <td class="px-4 py-2">{{ order.address }}</td>
             <td class="px-4 py-2">{{ order.date or '—' }}</td>
           </tr>

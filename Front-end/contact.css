@@ -395,7 +395,7 @@ a{
 @media (max-width: 768px) {
   .menu {
     flex-direction: row;
-    gap: 20px;
+    gap: 14px;
   }
   .menu-link {
     width: 90px;

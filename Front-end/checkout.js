@@ -48,7 +48,7 @@ document.addEventListener("DOMContentLoaded", function() {
 
 
 function submitOrder(event) {
-  event.preventDefault(); // Prevent page reload
+  event.preventDefault();
 
   const fname = document.getElementById("fname").value.trim();
   const lname = document.getElementById("lname").value.trim();
@@ -59,57 +59,78 @@ function submitOrder(event) {
   const email = document.getElementById("email").value.trim();
   const notes = document.getElementById("notes").value.trim();
 
-  const cart =
-    JSON.parse(localStorage.getItem("cart")) ||
-    JSON.parse(localStorage.getItem("direct_checkout_data")) ||
-    [];
+  // Get cart from either normal cart or direct checkout
+  let cart = JSON.parse(localStorage.getItem("cart")) || [];
+  const directCart = JSON.parse(localStorage.getItem("direct_checkout_data")) || [];
 
+  if (directCart.length > 0) {
+    cart = directCart;
+  }
 
   if (!fname || !lname || !phone || !address || !city || !postal || cart.length === 0) {
     alert("Please fill all required fields and ensure cart is not empty.");
     return;
   }
 
-  const orderData = {
+  const total = cart.reduce((sum, item) => sum + (item.price * item.quantity), 0);
+
+const orderData = {
     name: `${fname} ${lname}`,
     phone: phone,
     address: `${address}, ${city}, ${postal}`,
     email: email,
     notes: notes,
-    cart: cart
-  };
+    cart: cart,
+    total: total // ✅ total price add kiya
+};
+
 
   fetch("https://loris-website-production.up.railway.app/api/orders", {
-  method: "POST",
-  headers: { "Content-Type": "application/json" },
-  body: JSON.stringify(orderData)
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify(orderData)
   })
-  .then(res => res.json())
+  .then(async res => {
+    const data = await res.json();
+    if (!res.ok) throw data; // Backend error → catch block
+    return data;
+  })
   .then(data => {
-    if (data.error) {
-      alert("Failed: " + data.error);
-    } else {
-      alert("Order placed successfully! ID: " + data.order_id);
+    // ✅ Success alert
+    alert("Order placed successfully! ID: " + data.order_id);
 
-      // ✅ Clear form fields
-      document.getElementById("checkout-form").reset();
-
-      // ✅ Empty cart
-      localStorage.removeItem("cart");
-
-      // ✅ Update cart UI
-      if (typeof updateCartUI === "function") {
-        updateCartUI(); // agar tumhara function bana hua hai
-      } else {
-        const cartContainer = document.getElementById("cart-items");
-        if (cartContainer) {
-          cartContainer.innerHTML = "<p>Your cart is empty.</p>";
-        }
-      }
+    // ✅ Clear checkout form
+    const checkoutForm = document.getElementById("checkout-form");
+    if (checkoutForm) {
+     checkoutForm.reset();
     }
+
+    // ✅ Empty checkout cart
+    const checkoutCart = document.getElementById("checkout-cart-items");
+    if (checkoutCart) {
+      checkoutCart.innerHTML = "<li>Your cart is empty</li>";
+    }
+
+    // ✅ Reset checkout total
+    const checkoutTotal = document.getElementById("checkout-total");
+    if (checkoutTotal) {
+      checkoutTotal.textContent = "0";
+    }
+
+
+    // Clear both cart storages
+    localStorage.removeItem("cart");
+    localStorage.removeItem("direct_checkout_data");
+
+    // Update UI
+    const cartContainer = document.getElementById("cart-items") || document.getElementById("checkout-cart-items");
+    if (cartContainer) cartContainer.innerHTML = "<p>Your cart is empty.</p>";
+
+    // Optional: if you have updateCartUI function
+    if (typeof updateCartUI === "function") updateCartUI();
   })
   .catch(err => {
-    console.error(err);
-    alert("Failed to place order");
+    console.error("Order placement error:", err);
+    alert("Failed to place order: " + (err.error || "Unknown error"));
   });
 }
