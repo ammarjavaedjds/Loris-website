@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Admin Settings</title>
+    <style>
+        body { font-family: Arial; padding: 30px; }
+        input, textarea {
+            width: 400px;
+            padding: 10px;
+            margin-bottom: 10px;
+        }
+        label { display: block; margin-top: 15px; font-weight: bold; }
+        .btn { padding: 10px 20px; background: purple; color: white; border: none; cursor: pointer; }
+    </style>
+</head>
+<body>
+    <h2>Website Settings</h2>
+    {% if message %}
+        <p style="color: green;">{{ message }}</p>
+    {% endif %}
+    <form method="POST">
+        <label>Site Name</label>
+        <input name="site_name" value="{{ settings.site_name }}" required>
+
+        <label>Site Email</label>
+        <input name="site_email" value="{{ settings.site_email }}" required>
+
+        <label>Contact Number</label>
+        <input name="contact_number" value="{{ settings.contact_number }}" required>
+
+        <label>Address</label>
+        <input name="address" value="{{ settings.address }}" required>
+
+        <label>Footer Note</label>
+        <textarea name="footer_note">{{ settings.footer_note }}</textarea>
+
+        <button type="submit" class="btn">Save Settings</button>
+    </form>
+
+    <hr>
+
+    <h2>Change Admin Password</h2>
+    <form id="passwordForm">
+        <label>Old Password</label>
+        <input type="password" name="old_password" required>
+
+        <label>New Password</label>
+        <input type="password" name="new_password" required>
+
+        <button type="submit" class="btn">Change Password</button>
+    </form>
+
+    <p id="pw-msg"></p>
+
+    <script>
+        document.getElementById("passwordForm").addEventListener("submit", function(e) {
+            e.preventDefault();
+
+            const formData = new FormData(e.target);
+            fetch("/admin/change-password", {
+                method: "POST",
+                body: new URLSearchParams(formData)
+            })
+            .then(res => res.json())
+            .then(data => {
+                document.getElementById("pw-msg").textContent = data.message || data.error;
+                document.getElementById("pw-msg").style.color = data.message ? "green" : "red";
+            });
+        });
+    </script>
+</body>
+</html>

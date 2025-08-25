@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>View Orders - Admin Panel</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-100 text-gray-900 p-6">
+  <h1 class="text-2xl font-bold mb-4">🛍️ All Orders</h1>
+
+  <input type="text" id="searchInput" placeholder="Search by name..." class="mb-4 p-2 border border-gray-300 rounded w-1/3">
+
+  <a href="/admin/export_orders" class="bg-green-500 text-white px-4 py-2 rounded hover:bg-green-600 mb-4 inline-block">⬇️ Export CSV</a>
+
+  <table class="w-full table-auto border-collapse bg-white shadow-md">
+    <thead class="bg-gray-200">
+      <tr>
+        <th class="px-4 py-2 text-left">Name</th>
+        <th class="px-4 py-2 text-left">Email</th>
+        <th class="px-4 py-2 text-left">Items</th>
+        <th class="px-4 py-2 text-left">Quantity</th>
+        <th class="px-4 py-2 text-left">Total</th>
+        <th class="px-4 py-2 text-left">Address</th>
+        <th class="px-4 py-2 text-left">Date</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% if orders %}
+        {% for order in orders %}
+          <tr class="border-b">
+            <td class="px-4 py-2">{{ order.name }}</td>
+            <td class="px-4 py-2">{{ order.email }}</td>
+            <td class="px-4 py-2">
+              <ul class="list-disc pl-5">
+                {% for item in order.get('cart', []) %}
+                  <li>{{ item.name }} (Qty: {{ item.quantity }}) - Rs {{ item.price }}</li>
+                {% endfor %}
+              </ul>
+            </td>
+            <td class="px-4 py-2">
+              {% set total_qty = 0 %}
+              {% for item in order.get('cart', []) %}
+                {% set total_qty = total_qty + (item.quantity | int) %}
+              {% endfor %}
+              {{ total_qty }}
+            </td>
+            <td class="px-4 py-2">
+              {% set total = 0 %}
+              {% for item in order.get('cart', []) %}
+                {% set total = total + (item.quantity | int * item.price | int) %}
+              {% endfor %}
+              Rs {{ total }}
+            </td>
+            <td class="px-4 py-2">{{ order.address }}</td>
+            <td class="px-4 py-2">{{ order.date or '—' }}</td>
+          </tr>
+        {% endfor %}
+      {% else %}
+        <tr><td colspan="7" class="text-center py-4">No orders found</td></tr>
+      {% endif %}
+    </tbody>
+  </table>
+
+  <script>
+    const input = document.getElementById("searchInput");
+    input.addEventListener("keyup", function () {
+      const filter = input.value.toLowerCase();
+      const rows = document.querySelectorAll("tbody tr");
+      rows.forEach(row => {
+        const name = row.cells[0].textContent.toLowerCase(); // Name column
+        row.style.display = name.includes(filter) ? "" : "none";
+      });
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,73 @@
+<!-- templates/products.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Manage Products</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="p-8 bg-gray-100">
+  <h1 class="text-3xl font-bold mb-6 text-blue-700">🛒 Manage Products</h1>
+
+  <!-- Add Product Form -->
+  <form action="/admin/add_product" method="POST" class="bg-white p-6 rounded shadow mb-8 space-y-4">
+    <h2 class="text-xl font-semibold mb-2 text-gray-700">➕ Add New Product</h2>
+    <input type="text" name="name" placeholder="Product Name" class="border p-2 w-full rounded" required>
+    <input type="text" name="price" placeholder="Price (e.g. 1999)" class="border p-2 w-full rounded" required>
+    <input type="text" name="description" placeholder="Description" class="border p-2 w-full rounded" required>
+    <input type="text" name="image" placeholder="Image URL (optional)" class="border p-2 w-full rounded">
+    <button type="submit" class="bg-blue-600 hover:bg-blue-700 text-white px-5 py-2 rounded transition duration-200">
+      Add Product
+    </button>
+  </form>
+
+  <!-- Product Table -->
+  <div class="overflow-x-auto">
+    <table class="w-full bg-white shadow-md rounded-lg overflow-hidden">
+      <thead class="bg-gray-200">
+        <tr>
+          <th class="p-3 text-left">Image</th>
+          <th class="p-3 text-left">Name</th>
+          <th class="p-3 text-left">Price</th>
+          <th class="p-3 text-left">Description</th>
+          <th class="p-3 text-center">Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% if products %}
+         {% for p in products %}
+          <tr class="border-t hover:bg-gray-50 transition">
+            <td class="p-3">
+              {% if p.image %}
+              <img src="{{ p.image }}" alt="Image" class="h-16 w-16 object-cover rounded border">
+              {% else %}
+              <div class="text-gray-400 italic">No image</div>
+              {% endif %}
+            </td>
+            <td class="p-3 font-semibold text-gray-700">{{ p.name }}</td>
+            <td class="p-3 text-green-600 font-medium">Rs {{ p.price }}</td>
+            <td class="p-3 text-sm text-gray-600">{{ p.description }}</td>
+            <td class="p-3 text-center">
+              <form action="/admin/delete_product/{{ p._id }}" method="POST" class="inline">
+                <button 
+                  onclick="return confirm('Kya aap is product ko delete karna chahtay hain?')" 
+                  class="bg-red-500 hover:bg-red-600 text-white px-4 py-1 rounded">
+                  Delete
+                </button>
+              </form>
+              <a href="/admin/edit_product/{{ p._id }}" class="bg-yellow-500 hover:bg-yellow-600 text-white px-4 py-1 rounded ml-2 inline-block">
+                Edit
+              </a>
+            </td>
+          </tr>
+         {% endfor %}
+        {% else %}
+        <tr>
+          <td colspan="5" class="text-center p-6 text-gray-500">No Product Found</td>
+        </tr>
+        {% endif %}
+      </tbody>
+    </table>
+  </div>
+</body>
+</html>

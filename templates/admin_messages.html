@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Contact Messages</title>
+    <style>
+        table {
+            width: 90%;
+            margin: 30px auto;
+            border-collapse: collapse;
+        }
+        th, td {
+            padding: 12px;
+            border: 1px solid #ccc;
+        }
+        th {
+            background-color: rgb(124, 69, 124);
+            color: white;
+        }
+        h2 {
+            text-align: center;
+            font-size: 50px;
+            color: black;
+        }
+    </style>
+</head>
+<body>
+    <h2>Contact Form Messages</h2>
+    <table>
+        <tr>
+            <th>Name</th><th>Email</th><th>Phone</th><th>Message</th><th>Date</th>
+        </tr>
+        {% for msg in messages %}
+        <tr>
+            <td>{{ msg.name }}</td>
+            <td>{{ msg.email }}</td>
+            <td>{{ msg.phone }}</td>
+            <td>{{ msg.message }}</td>
+            <td>{{ msg.submitted_at.strftime('%d %b %Y %I:%M %p') if msg.submitted_at else "N/A" }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+</body>
+</html>
